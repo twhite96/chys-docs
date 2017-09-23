@@ -1,57 +1,51 @@
-# Site title and subtitle. This is used in _includes/header.html
-title: 'Check Yo Self'
-subtitle: 'Markdown Grammar Checker for Blog Posts'
+# name of the software
+name: Check Yo Self
 
-# if you wish to integrate disqus on pages set your shortname here
-disqus_shortname: ''
+project:
+    version: 0.0.1
+    download_url: https://github.com/twhite96/checkyoself/releases
 
-# if you use google analytics, add your tracking id here
-google_analytics_id: ''
+license:
+    software: MIT License
+    software_url: http://opensource.org/licenses/MIT
 
-# Enable/show navigation. There are there options:
-#   0 - always hide
-#   1 - always show
-#   2 - show only if posts are present
-navigation: 1
+    docs: CC BY 3.0
+    docs_url: http://creativecommons.org/licenses/by/3.0/
 
-# URL to source code, used in _includes/footer.html
-codeurl: 'https://github.com/twhite96/checkyoself/'
+links:
+    header:
+      - title: GitHub
+        url: https://github.com/twhite96/checkyoself
+    footer:
+      - title: GitHub
+        url: https://github.com/twhite96/checkyoself
+      - title: Issues
+        url: https://github.com/twhite96/checkyoself/issues?state=open
 
-# Default categories (in order) to appear in the navigation
-sections: [
-    ['doc', 'Documentation'],
-    ['tut', 'Tutorial'],
-    ['ref', 'Reference'],
-    ['dev', 'Developers'],
-    ['post', 'Posts']
-]
+ui:
+    header:
+        color1: "#069690"
+        color2: "#06D7D9"
+        trianglify: true
 
-# Keep as an empty string if served up at the root. If served up at a specific
-# path (e.g. on GitHub pages) leave off the trailing slash, e.g. /my-project
-baseurl: '/chys-docs'
+social:
+    github:
+        user: twhite96
+        repo: checkyoself
+    twitter:
+        enabled: true
+        via:
+        hash:
+        account:
+    facebook:
+        enabled: false
+        profileUrl:
 
-# Dates are not included in permalinks
-permalink: none
+analytics:
+    google: UA-123456-1
 
-# Syntax highlighting
-highlighter: rouge
-
-# Since these are pages, it doesn't really matter
-future: true
-
-# Exclude non-site files
-exclude: ['bin', 'README.md']
-
-# Use the kramdown Markdown renderer
+# Build settings
 markdown: kramdown
-redcarpet:
-    extensions: [
-        'no_intra_emphasis',
-        'fenced_code_blocks',
-        'autolink',
-        'strikethrough',
-        'superscript',
-        'with_toc_data',
-        'tables',
-        'hardwrap'
-    ]
+exclude:
+    - Gemfile
+    - Gemfile.lock
