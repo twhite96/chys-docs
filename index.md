@@ -68,3 +68,4 @@ for (let i = 0, l = input.length; i < l; ++i) {
     div.innerHTML += input[i] + "<br />";
 }
 document.body.appendChild(div);
+```
