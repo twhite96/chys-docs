@@ -76,14 +76,11 @@ for (let i = 0, l = input.length; i < l; ++i) {
 }
 document.body.appendChild(div);
 ```
-## Release History
-
-* 0.0.2
-    * Work in progress
 
 ## Meta
 
-Tiffany White – [@TiffanyW_412](https://twitter.com/TiffanyW_412)  email: <feedback@tiffanyrwhite.com>
+I'm on the Twitters at  – [@TiffanyW_412](https://twitter.com/TiffanyW_412)  For feedback and bugs:
+email: <feedback@tiffanyrwhite.com>
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
