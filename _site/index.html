@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Check Yo Self 0.0.1</title>
+        <title>Check Yo Self 0.0.2</title>
         <meta name="description" content="">
 
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -70,7 +70,7 @@
                 <p class="lead">
                     <a href="https://github.com/twhite96/checkyoself/releases" class="btn btn-outline-inverse btn-lg">Download</a>
                 </p>
-                <p class="version">Currently v0.0.1</p>
+                <p class="version">Currently v0.0.2</p>
             </div>
         </div>
 
@@ -81,226 +81,87 @@
                     <div class="bs-docs-section">
                         <h1 id="overview">Overview</h1>
 
+                        <div class="alert alert-warning">
+                            <p><strong>Warning</strong>: These docs are currently being worked on and are incomplete. I am doing quite a bit and writing good documentation is <em>hard</em>. Bare with me.</p>
+                        </div>
+
                         <blockquote>
-                            <p>This is a <a href="https://github.com/allejo/jekyll-docs-theme">Jekyll theme</a> based on <a href="https://github.com/mistic100/jekyll-bootstrap-doc">mistic100’s modification</a> of the official Bootstrap documentation from
-                                a few years back.</p>
+                            <p>Check Yo Self is a site to check the grammar of your markdown blog posts/texts.</p>
                         </blockquote>
 
-                        <p>Jekyll Docs Theme is provided as a theme for writing documentation for your projects instead of having a single large README file or several markdown files stored in a not so user-friendly manner.</p>
+                        <p><a href="https://travis-ci.org/twhite96/checkyoself"><img src="https://img.shields.io/travis/twhite96/checkyoself.svg" alt="Travis" /></a>
+                            <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/twhite96/checkyoself.svg" alt="Greenkeeper badge" /></a>
+                            <a href="https://twitter.com/TiffanyW_412"><img src="https://img.shields.io/twitter/follow/TiffanyW_412.svg?style=social&amp;label=Follow" alt="Twitter Follow" /></a>
+                            <a href="https://opensource.org/licenses/mit-license.php"><img src="https://badges.frapsoft.com/os/mit/mit.svg?v=103" alt="MIT Licence" /></a>
+                            <a href="https://github.com/ellerbrock/open-source-badges/"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source Love" /></a>
+                            <a href="https://github.com/twhite96/checkyoself"><img src="https://img.shields.io/github/commits-since/twhite96/checkyoself/0.0.2.svg?maxAge=2592000" alt="GitHub commits" /></a></p>
 
-                        <p>This theme is still in development but is kept fairly stable; just note, there are a lot things yet to come.</p>
+                        <p>Frustrated by Grammarly and Hemingway apps’ inability to process markdown blog posts, I decided to make my own site to process markdown blog posts or other texts. I settled on <a href="http://materializecss.com/">Materialize.css</a>                            a <a href="https://getmdl.io/index.html">Material Design Lite</a> library for the UI because I like colorful things.</p>
 
                         <h1 id="installation">Installation</h1>
 
-                        <p>Add this line to your Jekyll site’s Gemfile:</p>
+                        <p>No installation needed. Just fork the repo, install dev dependencies, and get running.</p>
 
-                        <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"jekyll-docs-theme"</span>
+                        <h2 id="development-setup">Development setup</h2>
+
+                        <p>There are a few dependencies and I want to thank <a href="https://github.com/btford">@btford</a> and the <a href="https://github.com/NaturalNode">@NaturalNode</a> Organization for their awesome tools which without them this wouldn’t
+                            be as easy.</p>
+
+                        <p>Fork the repo, and add your own <code class="highlighter-rouge">package.json</code> file with:</p>
+
+                        <div class="language-bash highlighter-rouge"><pre class="highlight"><code>npm init
+</code></pre>
+                        </div>
+                        <p>and fill in all the gritty details.</p>
+
+                        <p>The site uses Brian Ford’s <code class="highlighter-rouge">write-good</code> linter for native English and NaturalNode’s <code class="highlighter-rouge">natural</code> for the tokenizers in its Node npm module.</p>
+
+                        <p>To install <code class="highlighter-rouge">write-good</code>:</p>
+
+                        <div class="language-bash highlighter-rouge"><pre class="highlight"><code>npm install write-good
+</code></pre>
+                        </div>
+                        <p>…and natural:</p>
+
+                        <div class="language-bash highlighter-rouge"><pre class="highlight"><code>npm install natural
 </code></pre>
                         </div>
 
-                        <p>And add this line to your Jekyll site’s _config.yml:</p>
+                        <h1 id="usage-example">Usage example</h1>
 
-                        <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">theme</span><span class="pi">:</span> <span class="s">jekyll-docs-theme</span>
+                        <p>You can basically do what you like with this. I am using MEN stack with Mongo, Express, and Node, using RESTful routes and hosting on Heroku. It is up to you how you want to build on top of what I have here.</p>
+
+                        <h2 id="using-the-write-good-library">Using the <code class="highlighter-rouge">write-good</code> library</h2>
+
+                        <p>You need to require it in your <code class="highlighter-rouge">app.js</code> or whatver you’re going to use to route interaction through the app (if you’re using MEAN or MEN). Your script could look something like:</p>
+
+                        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">writeGood</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'write-good'</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">inputs</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'textarea'</span><span class="p">).</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'input'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">l</span> <span class="o">=</span> <span class="nx">inputs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">inputs</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">input</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">inputs</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">suggestions</span> <span class="o">=</span> <span class="nx">writeGood</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">l</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">div</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">+=</span> <span class="nx">input</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">div</span><span class="p">);</span>
 </code></pre>
                         </div>
 
-                        <p>And then execute:</p>
+                        <h2 id="meta">Meta</h2>
 
-                        <div class="highlighter-rouge"><pre class="highlight"><code>$ bundle
-</code></pre>
-                        </div>
+                        <p>I’m on the Twitters at – <a href="https://twitter.com/TiffanyW_412">@TiffanyW_412</a></p>
 
-                        <p>Or install it yourself as:</p>
+                        <p>For feedback and bugs: email: <a href="mailto:feedback@tiffanyrwhite.com">feedback@tiffanyrwhite.com</a></p>
 
-                        <div class="highlighter-rouge"><pre class="highlight"><code>$ gem install jekyll-docs-theme
-</code></pre>
-                        </div>
-
-                        <div class="alert alert-warning">
-                            <p><strong>Warning:</strong> Custom <a href="https://pages.github.com/themes/">themes are not supported on GitHub Pages</a> at the time of writing this, so you may either build your site on another platform or simply fork this
-                                repo and build upon it as you would any other theme.</p>
-                        </div>
-
-                        <h1 id="configuration-options">Configuration Options</h1>
-
-                        <p>A sample <a href="https://github.com/allejo/jekyll-docs-theme/blob/master/docs/_config.yml"><code class="highlighter-rouge">_config.yml</code></a> file is available with all of the available fields; documentation and more information
-                            for each of those fields is available below.</p>
-
-                        <h2 id="project">Project</h2>
-
-                        <p>The project object can be specified with information related to the software this; this information will appear on the homepage’s jumbotron area.</p>
-
-                        <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">project</span><span class="pi">:</span>
-  <span class="s">version</span><span class="pi">:</span> <span class="s">1.0.0</span>
-  <span class="s">download_url</span><span class="pi">:</span> <span class="s">https://github.com/USER/PROJECT/releases</span>
-</code></pre>
-                        </div>
-
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>field</th>
-                                    <th>description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code class="highlighter-rouge">version</code></td>
-                                    <td>The current version of the software</td>
-                                </tr>
-                                <tr>
-                                    <td><code class="highlighter-rouge">download_url</code></td>
-                                    <td>The URL to the current download</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h2 id="licenses">Licenses</h2>
-
-                        <p>The license object accepts four fields regarding information about the licensing of your software and documentation.</p>
-
-                        <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">license</span><span class="pi">:</span>
-  <span class="s">software</span><span class="pi">:</span> <span class="s">MIT License</span>
-  <span class="s">software_url</span><span class="pi">:</span> <span class="s">http://opensource.org/licenses/MIT</span>
-
-  <span class="s">docs</span><span class="pi">:</span> <span class="s">CC BY 3.0</span>
-  <span class="s">docs_url</span><span class="pi">:</span> <span class="s">http://creativecommons.org/licenses/by/3.0/</span>
-</code></pre>
-                        </div>
-
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>field</th>
-                                    <th>description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code class="highlighter-rouge">software</code></td>
-                                    <td>The license the software is distributed under</td>
-                                </tr>
-                                <tr>
-                                    <td><code class="highlighter-rouge">software_url</code></td>
-                                    <td>A URL to the license text for the license specified in <code class="highlighter-rouge">software</code></td>
-                                </tr>
-                                <tr>
-                                    <td><code class="highlighter-rouge">docs</code></td>
-                                    <td>The license this documentation is distributed under</td>
-                                </tr>
-                                <tr>
-                                    <td><code class="highlighter-rouge">docs_url</code></td>
-                                    <td>A URL to the license text for the license specified in <code class="highlighter-rouge">docs</code></td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h2 id="links">Links</h2>
-
-                        <p>The links object has two subobjects, <code class="highlighter-rouge">header</code> and <code class="highlighter-rouge">footer</code>; both of these objects accept an array of elements with a <code class="highlighter-rouge">title</code>                            and <code class="highlighter-rouge">url</code>. The links defined in the <code class="highlighter-rouge">header</code> object will appear in the navigation of the website and the links in the <code class="highlighter-rouge">footer</code>                            will appear at the bottom of the website.</p>
-
-                        <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">links</span><span class="pi">:</span>
-  <span class="s">header</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">GitHub</span>
-      <span class="s">url</span><span class="pi">:</span> <span class="s">https://github.com/allejo/jekyll-docs-theme</span>
-  <span class="s">footer</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">GitHub</span>
-      <span class="s">url</span><span class="pi">:</span> <span class="s">https://github.com/allejo/jekyll-docs-theme</span>
-    <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">Issues</span>
-      <span class="s">url</span><span class="pi">:</span> <span class="s">https://github.com/allejo/jekyll-docs-theme/issues?state=open</span>
-</code></pre>
-                        </div>
-
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>field</th>
-                                    <th>description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code class="highlighter-rouge">title</code></td>
-                                    <td>The textual representation of the URL</td>
-                                </tr>
-                                <tr>
-                                    <td><code class="highlighter-rouge">url</code></td>
-                                    <td>The URL of the link</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h2 id="ui">UI</h2>
-
-                        <p>The ui object will contain all the settings in regards to the aesthetics of the website</p>
-
-                        <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">ui</span><span class="pi">:</span>
-  <span class="s">header</span><span class="pi">:</span>
-    <span class="s">color1</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#080331"</span>
-    <span class="s">color2</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#673051"</span>
-    <span class="s">trianglify</span><span class="pi">:</span> <span class="s">true</span>
-</code></pre>
-                        </div>
-
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>field</th>
-                                    <th>description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code class="highlighter-rouge">color1</code> &amp; <code class="highlighter-rouge">color2</code></td>
-                                    <td>The two colors that will create the gradient of the page header</td>
-                                </tr>
-                                <tr>
-                                    <td><code class="highlighter-rouge">trianglify</code></td>
-                                    <td>When set to true, the page header will be a generated triangular pattern</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h2 id="analytics">Analytics</h2>
-
-                        <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">analytics</span><span class="pi">:</span>
-    <span class="s">google</span><span class="pi">:</span> <span class="s">UA-123456-1</span>
-</code></pre>
-                        </div>
-
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>field</th>
-                                    <th>description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code class="highlighter-rouge">google</code></td>
-                                    <td>The unique identifier for Google Analytics; typically looks like <code class="highlighter-rouge">U-123456-1</code></td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h2 id="social">Social</h2>
-
-                        <p>Options for configuring buttons to “like”, “tweet” or “star” this site with the respective social media websites.</p>
-
-                        <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">social</span><span class="pi">:</span>
-  <span class="s">github</span><span class="pi">:</span>
-    <span class="s">user</span><span class="pi">:</span> <span class="s">allejo</span>
-    <span class="s">repo</span><span class="pi">:</span> <span class="s">jekyll-docs-theme</span>
-  <span class="s">twitter</span><span class="pi">:</span>
-    <span class="s">enabled</span><span class="pi">:</span> <span class="s">false</span>
-    <span class="s">via</span><span class="pi">:</span>
-    <span class="s">hash</span><span class="pi">:</span>
-    <span class="s">account</span><span class="pi">:</span>
-  <span class="s">facebook</span><span class="pi">:</span>
-    <span class="s">enabled</span><span class="pi">:</span> <span class="s">false</span>
-    <span class="s">profileUrl</span><span class="pi">:</span>
-</code></pre>
-                        </div>
+                        <p>Distributed under the MIT license. See <code class="highlighter-rouge">LICENSE</code> for more information.</p>
                     </div>
                 </div>
 
@@ -322,15 +183,15 @@
                     <ul class="bs-docs-social-buttons">
 
                         <li>
-                            <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twhite96&amp;repo=checkyoself&amp;type=watch&amp;count=true" width="90" height="20" title="Star on GitHub"></iframe>
+                            <iframe class="github-btn" src="https://ghbtns.com/github-btn.html?user=twhite96&amp;repo=checkyoself&amp;type=watch&amp;count=true" width="90" height="20" title="Star on GitHub"></iframe>
                         </li>
                         <li>
-                            <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twhite96&amp;repo=checkyoself&amp;type=fork&amp;count=true" width="90" height="20" title="Fork on GitHub"></iframe>
+                            <iframe class="github-btn" src="https://ghbtns.com/github-btn.html?user=twhite96&amp;repo=checkyoself&amp;type=fork&amp;count=true" width="90" height="20" title="Fork on GitHub"></iframe>
                         </li>
 
 
                         <li>
-                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="" data-count="horizontal" data-via="" data-text="Check Yo Self" data-hashtags="">Tweet</a>
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="" data-count="horizontal" data-via="" data-text="Check Yo Self" data-hashtags="checkyoself">Tweet</a>
                         </li>
 
 
@@ -347,7 +208,7 @@
                 </p>
 
                 <ul class="bs-docs-footer-links muted">
-                    <li>Currently v0.0.1</li>
+                    <li>Currently v0.0.2</li>
 
                     <li>&middot;</li>
                     <li>
