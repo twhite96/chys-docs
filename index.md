@@ -83,5 +83,3 @@ I'm on the Twitters at  – [@TiffanyW_412](https://twitter.com/TiffanyW_412)  F
 email: <feedback@tiffanyrwhite.com>
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
-
-[https://github.com/twhite96/checkyoself](https://github.com/twhite96/checkyoself)
