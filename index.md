@@ -5,150 +5,66 @@ homepage: true
 
 # Overview
 
-> This is a [Jekyll theme](https://github.com/allejo/jekyll-docs-theme) based on [mistic100's modification](https://github.com/mistic100/jekyll-bootstrap-doc) of the official Bootstrap documentation from a few years back.
+<div class="alert alert-warning" markdown="1">
+**Warning**: These docs are currently being worked on and are incomplete. I am doing quite a bit and writing good documentation is *hard*. Bare with me.
+</div>
 
-Jekyll Docs Theme is provided as a theme for writing documentation for your projects instead of having a single large README file or several markdown files stored in a not so user-friendly manner.
+> Check Yo Self is  a site to check the grammar of your markdown blog posts/texts.
 
-This theme is still in development but is kept fairly stable; just note, there are a lot things yet to come.
+Frustrated by Grammarly and Hemingway apps' inability to process markdown blog posts, I decided to make my own site to process markdown blog posts or other texts. I settled on [Materialize.css](http://materializecss.com/) a [Material Design Lite](https://getmdl.io/index.html) library for the UI because I like colorful things.
 
 # Installation
 
-Add this line to your Jekyll site's Gemfile:
+No installation needed. Just fork the repo, install dev dependencies, and get running.
 
-```ruby
-gem "jekyll-docs-theme"
+
+## Development setup
+
+There are a few dependencies and I want to thank [@btford](https://github.com/btford) and the [@NaturalNode](https://github.com/NaturalNode) Organization for their awesome tools which without them this wouldn't be as easy.
+
+Fork the repo, and add your own `package.json` file with:
+
+```bash
+npm init
+```
+and fill in all the gritty details.
+
+The site uses Brian Ford's `write-good` linter for native English and NaturalNode's `natural` for the tokenizers in its Node npm module.
+
+To install `write-good`:
+
+```bash
+npm install write-good
+```
+...and natural:
+
+```bash
+npm install natural
 ```
 
-And add this line to your Jekyll site's _config.yml:
+# Usage example
 
-```yaml
-theme: jekyll-docs-theme
-```
+You can basically do what you like with this. I am using MEN stack with Mongo, Express, and Node, using RESTful routes and hosting on Heroku. It is up to you how you want to build on top of what I have here.
 
-And then execute:
+## Using the `write-good` library
 
-```
-$ bundle
-```
+You need to require it in your `app.js` or whatver you're going to use to route interaction through the app (if you're using MEAN or MEN). Your script could look something like:
 
-Or install it yourself as:
+```javascript
+var writeGood = require('write-good');
 
-```
-$ gem install jekyll-docs-theme
-```
+const inputs = document.getElementById('textarea').getElementsByTagName('input');
+const input = [];
+for (let i = 0, l = inputs.length; i < l; ++i) {
+    if (inputs[i].value.length) {
+        input.push(inputs[i].value);
+    }
+}
 
-<div class="alert alert-warning" markdown="1">
-**Warning:** Custom [themes are not supported on GitHub Pages](https://pages.github.com/themes/) at the time of writing this, so you may either build your site on another platform or simply fork this repo and build upon it as you would any other theme.
-</div>
+let suggestions = writeGood(input);
 
-# Configuration Options
-
-A sample [`_config.yml`](https://github.com/allejo/jekyll-docs-theme/blob/master/docs/_config.yml) file is available with all of the available fields; documentation and more information for each of those fields is available below.
-
-## Project
-
-The project object can be specified with information related to the software this; this information will appear on the homepage's jumbotron area.
-
-```yaml
-project:
-  version: 1.0.0
-  download_url: https://github.com/USER/PROJECT/releases
-```
-
-{:.table}
-| field | description |
-| ----- | ----------- |
-| `version` | The current version of the software |
-| `download_url` | The URL to the current download |
-
-## Licenses
-
-The license object accepts four fields regarding information about the licensing of your software and documentation.
-
-```yaml
-license:
-  software: MIT License
-  software_url: http://opensource.org/licenses/MIT
-
-  docs: CC BY 3.0
-  docs_url: http://creativecommons.org/licenses/by/3.0/
-```
-
-{:.table}
-| field | description |
-| ----- | ----------- |
-| `software` | The license the software is distributed under |
-| `software_url` | A URL to the license text for the license specified in `software` |
-| `docs` | The license this documentation is distributed under |
-| `docs_url` | A URL to the license text for the license specified in `docs` |
-
-## Links
-
-The links object has two subobjects, `header` and `footer`; both of these objects accept an array of elements with a `title` and `url`. The links defined in the `header` object will appear in the navigation of the website and the links in the `footer` will appear at the bottom of the website.
-
-```yaml
-links:
-  header:
-    - title: GitHub
-      url: https://github.com/allejo/jekyll-docs-theme
-  footer:
-    - title: GitHub
-      url: https://github.com/allejo/jekyll-docs-theme
-    - title: Issues
-      url: https://github.com/allejo/jekyll-docs-theme/issues?state=open
-```
-
-{:.table}
-| field | description |
-| ----- | ----------- |
-| `title` | The textual representation of the URL |
-| `url` | The URL of the link |
-
-## UI
-
-The ui object will contain all the settings in regards to the aesthetics of the website
-
-```yaml
-ui:
-  header:
-    color1: "#080331"
-    color2: "#673051"
-    trianglify: true
-```
-
-{:.table}
-| field | description |
-| ----- | ----------- |
-| `color1` & `color2` | The two colors that will create the gradient of the page header |
-| `trianglify` | When set to true, the page header will be a generated triangular pattern |
-
-## Analytics
-
-```yaml
-analytics:
-    google: UA-123456-1
-```
-
-{:.table}
-| field | description |
-| ----- | ----------- |
-| `google` | The unique identifier for Google Analytics; typically looks like `U-123456-1`
-
-## Social
-
-Options for configuring buttons to "like", "tweet" or "star" this site with the respective social media websites.
-
-```yaml
-social:
-  github:
-    user: allejo
-    repo: jekyll-docs-theme
-  twitter:
-    enabled: false
-    via:
-    hash:
-    account:
-  facebook:
-    enabled: false
-    profileUrl:
-```
+const div = document.createElement('div');
+for (let i = 0, l = input.length; i < l; ++i) {
+    div.innerHTML += input[i] + "<br />";
+}
+document.body.appendChild(div);
