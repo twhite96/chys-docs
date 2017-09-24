@@ -79,7 +79,9 @@ document.body.appendChild(div);
 
 ## Meta
 
-I'm on the Twitters at  – [@TiffanyW_412](https://twitter.com/TiffanyW_412)  For feedback and bugs:
+I'm on the Twitters at  – [@TiffanyW_412](https://twitter.com/TiffanyW_412)  
+
+For feedback and bugs:
 email: <feedback@tiffanyrwhite.com>
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
