@@ -35,8 +35,8 @@ social:
     twitter:
         enabled: true
         via:
-        hash:
-        account:
+        hash: checkyoself
+        account: TiffanyW_412
     facebook:
         enabled: false
         profileUrl:
