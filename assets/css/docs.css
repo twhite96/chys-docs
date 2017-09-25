@@ -29,7 +29,7 @@ body {
 .btn-outline-inverse {
     color: #fff;
     background-color: transparent;
-    border-color: #cdbfe3
+    border-color: #06ACAC
 }
 
 .btn-outline-inverse:hover, .btn-outline-inverse:focus, .btn-outline-inverse:active {
@@ -89,7 +89,7 @@ body {
 }
 
 .bs-docs-nav .navbar-nav>li>a:hover, .bs-docs-nav .navbar-nav>.active>a, .bs-docs-nav .navbar-nav>.active>a:hover {
-    color: #55ffb8;
+    color: #06ACAC;
     background-color: #f9f9f9
 }
 
@@ -177,7 +177,7 @@ body {
     background-image: -webkit-linear-gradient(top, #06d7d9 0, #06acac 100%);
     background-image: linear-gradient(to bottom, #06d7d9 0, #06acac 100%);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#06ACAC', GradientType=0)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#06D7D9', endColorstr='#06ACAC', GradientType=0)
 }
 
 .bs-docs-masthead .bs-docs-booticon {
@@ -199,7 +199,7 @@ body {
 .bs-docs-masthead .version {
     margin-top: -15px;
     margin-bottom: 30px;
-    color: #9783b9
+    color: #06ACAC;
 }
 
 .bs-docs-masthead .btn {
