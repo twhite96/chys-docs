@@ -25,7 +25,7 @@ You'll need to install dev dependencies.
 
 ## Development setup
 
-There are a few dependencies and I want to thank [@btford](https://github.com/btford) and the [@NaturalNode](https://github.com/NaturalNode) Organization for their awesome tools which without them this wouldn't be as easy.
+There are a few dependencies and I want to thank [@btford](https://github.com/btford) for his awesome library which without him this wouldn't be as easy.
 
 Fork the repo, and add your own `package.json` file with:
 
@@ -34,17 +34,17 @@ npm init
 ```
 and fill in all the gritty details.
 
-The site uses Brian Ford's `write-good` linter for native English and NaturalNode's `natural` for the tokenizers in its Node npm module.
+The site uses Brian Ford's `write-good` linter for native English and GitBook's `hunspell-spellchecker` for the spellchecker I am using.
 
 To install `write-good`:
 
 ```bash
 npm install write-good
 ```
-...and natural:
+...and hunspell:
 
 ```bash
-npm install natural
+npm install hunspell-spellchecker
 ```
 
 # Usage example
@@ -58,7 +58,7 @@ You need to require it in your `app.js` or whatver you're going to use to route 
 ```javascript
 var writeGood = require('write-good');
 
-const inputs = document.getElementById('textarea').getElementsByTagName('input');
+const inputs = document.getElementById('texts').getElementsByTagName('textarea');
 const input = [];
 for (let i = 0, l = inputs.length; i < l; ++i) {
     if (inputs[i].value.length) {
