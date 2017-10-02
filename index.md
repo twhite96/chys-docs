@@ -69,8 +69,8 @@ for (let i = 0, l = inputs.length; i < l; ++i) {
 let suggestions = writeGood(input);
 
 const div = document.createElement('div');
-for (let i = 0, l = input.length; i < l; ++i) {
-    div.innerHTML += input[i] + "<br />";
+for (let i = 0, l = sugesstions.length; i < l; ++i) {
+    div.innerHTML += sugesstions[i] + "<br />";
 }
 document.body.appendChild(div);
 ```
