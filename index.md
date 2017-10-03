@@ -44,7 +44,7 @@ npm install write-good
 ...and hunspell:
 
 ```bash
-npm install hunspell-spellchecker
+npm install spell-checker
 ```
 
 # Usage example
@@ -56,24 +56,54 @@ You can basically do what you like with this. I am using MEN stack with Mongo, E
 You need to require it in your `app.js` or whatver you're going to use to route interaction through the app (if you're using MEAN or MEN). Your script could look something like:
 
 ```javascript
-var writeGood = require('write-good');
+const writeGood = require('write-good');
 
-const inputs = document.getElementById('texts').getElementsByTagName('textarea');
-const input = [];
-for (let i = 0, l = inputs.length; i < l; ++i) {
-    if (inputs[i].value.length) {
-        input.push(inputs[i].value);
-    }
-}
+let suggestions = writeGood('So the toilet paper was eaten by my cat');
 
-let suggestions = writeGood(input);
+// Will return an array of suggestions
 
-const div = document.createElement('div');
-for (let i = 0, l = sugesstions.length; i < l; ++i) {
-    div.innerHTML += sugesstions[i] + "<br />";
-}
-document.body.appendChild(div);
+suggestions:
+[{
+    suggestion: "omit 'So' from the beginning of sentences",
+    index: 0, offset: 2
+ }, {
+     suggestion: "' was eaten' is passive voice",
+     index: 20, offset: 19
+ }]
 ```
+
+You can also disable checks for certain properties:
+
+```javascript
+const writeGood = require('write-good');
+
+let suggestions = writeGood('So the toilet paper was eaten by my cat', { passive: false});
+
+// suggestions: [ ]
+```
+
+## Using the `spell-checker-js` library
+
+You can easily use this `spell-checker` library in this project by requiring it and invoking it with something like:
+
+```javascript
+const spell = require('spell-checker-js')
+ 
+// Load dictionary
+spell.load('en')
+ 
+// Check spelling
+const check = spell.check('Some **text** to chec!');
+ 
+console.log(check)
+
+// Returns an array of spell-checked words
+// ['chec']
+```
+
+# Authentication
+
+
 
 ## Meta
 
