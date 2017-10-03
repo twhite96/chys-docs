@@ -34,14 +34,14 @@ npm init
 ```
 and fill in all the gritty details.
 
-The site uses Brian Ford's `write-good` linter for native English and GitBook's `hunspell-spellchecker` for the spellchecker I am using.
+The site uses Brian Ford's `write-good` linter for native English and [@danakt](https://github.com/danakt/spell-checker.js)'s `spell-checker-js` for the spellchecker I am using.
 
 To install `write-good`:
 
 ```bash
 npm install write-good
 ```
-...and hunspell:
+...and spell-checker:
 
 ```bash
 npm install spell-checker
