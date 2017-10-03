@@ -41,7 +41,7 @@ To install `write-good`:
 ```bash
 npm install write-good
 ```
-...and spell-checker:
+...and `spell-checker`:
 
 ```bash
 npm install spell-checker
