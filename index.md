@@ -51,7 +51,7 @@ npm install spell-checker
 
 You can basically do what you like with this. I am using MEN stack with Mongo, Express, and Node, using RESTful routes and hosting on Heroku. It is up to you how you want to build on top of what I have here.
 
-## Using the `write-good` library
+## Using the write-good library
 
 You need to require it in your `app.js` or whatver you're going to use to route interaction through the app (if you're using MEAN or MEN). Your script could look something like:
 
@@ -82,7 +82,7 @@ let suggestions = writeGood('So the toilet paper was eaten by my cat', { passive
 // suggestions: [ ]
 ```
 
-## Using the `spell-checker-js` library
+## Using the spell-checker-js library
 
 You can easily use this `spell-checker` library in this project by requiring it and invoking it with something like:
 
