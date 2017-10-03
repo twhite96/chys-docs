@@ -77,7 +77,7 @@ You can also disable checks for certain properties:
 ```javascript
 const writeGood = require('write-good');
 
-let suggestions = writeGood('So the toilet paper was eaten by my cat', { passive: false});
+let suggestions = writeGood('So the toilet paper was eaten by my cat', { passive: false });
 
 // suggestions: [ ]
 ```
