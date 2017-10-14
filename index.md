@@ -110,6 +110,6 @@ console.log(check)
 I'm on the Twitters at  – [@TiffanyW_412](https://twitter.com/TiffanyW_412)  
 
 For feedback and bugs:
-email: <feedback@tiffanyrwhite.com>
+email: <bugs@tiffanyrwhite.com>
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
