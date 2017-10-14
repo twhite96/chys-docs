@@ -6,7 +6,7 @@ homepage: true
 # Overview
 
 <div class="alert alert-warning" markdown="1">
-**Warning**: These docs are currently being worked on and are incomplete. I am doing quite a bit and writing good documentation is *hard*. Bare with me.
+**Warning**: These docs are currently being worked on and are incomplete. I am doing quite a bit and writing good documentation is *hard*. Bear with me.
 </div>
 
 > Check Yo Self is  a site to check the grammar and spelling of your markdown blog posts/texts.
