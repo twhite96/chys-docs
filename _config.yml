@@ -1,6 +1,8 @@
 # name of the software
 name: Check Yo Self
 
+theme: jekyll-docs-theme
+
 project:
     version: 0.0.2
     download_url: https://github.com/twhite96/checkyoself/releases
