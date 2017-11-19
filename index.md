@@ -53,7 +53,7 @@ You can basically do what you like with this. I am using MEN stack with Mongo, E
 
 ## Using the write-good library
 
-You need to require it in your `app.js` or whatver you're going to use to route interaction through the app (if you're using MEAN or MEN). Your script could look something like:
+You need to require it in your `app.js` or whatever you're going to use to route interaction through the app (if you're using MEAN or MEN). Your script could look something like:
 
 ```javascript
 const writeGood = require('write-good');
@@ -88,13 +88,13 @@ You can easily use this `spell-checker` library in this project by requiring it 
 
 ```javascript
 const spell = require('spell-checker-js')
- 
+
 // Load dictionary
 spell.load('en')
- 
+
 // Check spelling
 const check = spell.check('Some **text** to chec!');
- 
+
 console.log(check)
 
 // Returns an array of spell-checked words
